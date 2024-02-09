@@ -1,0 +1,40 @@
+question: " What is the primary goal of cybersecurity?";
+marks: 5;
+answers:
+	option: "Enhancing internet speed";
+	option: "Protecting digital assets from cyber threats";
+	option: "Creating new computer technologies";
+	option: " Increasing social media engagement";
+	correct: "Protecting digital assets from cyber threats";
+    ;
+question: " Which is the common method for enhancing authentication security?";
+marks: 5;
+answers:
+	option: "Ignoring password changes"; correct: false;
+	option: "Using easily guessable passwords"; correct: false;
+	option: "Two-factor authentication"; correct: true;
+	option: "Sharing passwords with colleagues"; correct: false;
+	;
+question: "What does encryption do for data?";
+marks: 5;
+answers:
+	option: " Makes it publicly accessible"; correct: false;	
+	option: "Converts it into an unreadable format"; correct: true;
+	option: "Deletes it permanently"; correct: false;
+	option: "Enhances its speed of transmission"; correct: false;
+        ;
+question: " Which practice helps prevent unauthorized access to digital systems?";
+marks: 5;
+answers:
+	option: " Sharing passwords with friends"; correct: false;
+	option: "Ignoring software updates"; correct: false;
+	option: "Using strong; unique passwords"; correct: true;
+	option: " Keeping sensitive information in plain text files", correct: false;
+        ;
+question: "How can individuals and employees contribute to cybersecurity?";
+marks: 5;
+answers: 
+	option: "By clicking on suspicious links"; correct: false;
+	option: "By sharing sensitive information online"; correct: false;
+	option: " By ignoring cybersecurity training"; correct: false;
+	option: " By recognizing common phishing tactics and social engineering schemes"; correct: true;

@@ -1,0 +1,13 @@
+create form
+clicking submit should lead to view
+
+
+Good afternoon Sir,
+The task that was assigned is almost complete.
+The following parts are complete in the "txtyaml" django app:
+1. User authentication.
+2. File upload
+3. File validation
+4. Tracking activities
+
+The conversion of the text file to yaml is in progress, will update you in a few days.

@@ -1,0 +1,40 @@
+- answers:
+  - Enhancing internet speed
+  - Protecting digital assets from cyber threats
+  - Creating new computer technologies
+  - Increasing social media engagement
+  correct: Protecting digital assets from cyber threats
+  marks: 5
+  question: What is the primary goal of cybersecurity?
+- answers:
+  - Ignoring password changes
+  - Using easily guessable passwords
+  - Two-factor authentication
+  - Sharing passwords with colleagues
+  correct: Two-factor authentication
+  marks: 5
+  question: Which is the common method for enhancing authentication security?
+- answers:
+  - Makes it publicly accessible
+  - Converts it into an unreadable format
+  - Deletes it permanently
+  - Enhances its speed of transmission
+  correct: Converts it into an unreadable format
+  marks: 5
+  question: What does encryption do for data?
+- answers:
+  - Sharing passwords with friends
+  - Ignoring software updates
+  - Using strong, unique passwords
+  - Keeping sensitive information in plain text files
+  correct: Using strong, unique passwords
+  marks: 5
+  question: Which practice helps prevent unauthorized access to digital systems?
+- answers:
+  - By clicking on suspicious links
+  - By sharing sensitive information online
+  - By ignoring cybersecurity training
+  - By recognizing common phishing tactics and social engineering schemes
+  correct: By recognizing common phishing tactics and social engineering schemes
+  marks: 5
+  question: How can individuals and employees contribute to cybersecurity?

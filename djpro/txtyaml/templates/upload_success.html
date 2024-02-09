@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload Success{% endblock %}
+
+{% block content %}
+<h2>Upload Success</h2>
+<p>File uploaded and converted successfully!</p>
+<p>Download the converted YAML file: <a href="{% url 'download_yaml' file_id=file_id %}">Download YAML</a></p>
+{% endblock %}
