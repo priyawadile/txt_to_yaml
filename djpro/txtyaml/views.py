@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from .forms import TextFile, UploadFileForm
 import yaml, re
+from django.conf import settings
+import os
   
 def signup(request):
     if request.user.is_authenticated:
@@ -61,34 +63,51 @@ def upload_file(request):
         form = UploadFileForm(request.POST, request.FILES)
         print(form)
         if form.is_valid():
-            form.save()
+            uploaded_file = form.save()
+            input_file_path = os.path.join(settings.MEDIA_ROOT, str(uploaded_file.file))
+            output_file_path = os.path.join(settings.MEDIA_ROOT, 'converted_yaml.yaml')
+            convert_text_to_yaml(input_file_path, output_file_path)
             print('Form is valid')
-            return HttpResponse("success")
+            return render(request, "upload_success.html", {"form": form})
         else:
             print("Form not valid")
     else:
         form = UploadFileForm()
     return render(request, "upload_file.html", {"form": form})
-    
-def convert_to_yaml(text_content):
-    yaml_data = {"questions": []}
-    lines = text_content.split('\n')
-    for line in lines:
-        if not line.strip():
-            continue
-        parts = line.split(';')
-        question = parts[0]
-        marks = int(parts[1])
-        options = parts[2:-1]
-        correct_answer = parts[-1]
 
-        question_dict = {
-            "description": question,
-            "marks": marks,
-            "options": options,
-            "correct_answer": correct_answer
-        }
+def convert_text_to_yaml(input_file_path, output_file_path):
+    questions = []
 
-        yaml_data["questions"].append(question_dict)
+    with open(input_file_path, 'r') as input_file:
+        current_question = None
+        for line in input_file:
+            line = line.strip()
+            if line.startswith("question:"):
+                if current_question:
+                    #questions = []
+                    questions.append(current_question)
+                current_question = {"question": line.split(":", 1)[1].split(";")[0].strip()}
+            elif line.startswith("marks:"):
+                current_question["marks"] = int(line.split(":", 1)[1].split(";")[0].strip())
+            elif line.startswith("option:"):
+                if "answers" not in current_question:
+                    current_question["answers"] = []
+                current_question["answers"].append(line.split(":", 1)[1].split(";")[0].strip())
+            elif line.startswith("correct:"):
+                current_question["correct"] = line.split(":", 1)[1].split(";")[0].strip()
+                
+    if current_question:
+        questions.append(current_question)
 
-    return yaml_data
+    with open(output_file_path, 'w') as output_file:
+        yaml.dump(questions, output_file, default_flow_style=False, sort_keys=False)
+
+def download_yaml(request):
+    file_path = os.path.join(settings.MEDIA_ROOT, 'converted_yaml.yaml')
+    with open(file_path, 'rb') as file:
+        response = HttpResponse(file.read(), content_type = 'application/yaml')
+        response['Content-Disposition'] = f'attachment; filename={os.path.basename(file_path)}'
+        return response
+#input_file_path = r'C:\Users\admin\Desktop\sample.txt'
+#output_file_path = r'C:\Users\admin\Desktop\djpro\txtyaml\convertedyaml.yaml'
+#convert_text_to_yaml(input_file_path, output_file_path)

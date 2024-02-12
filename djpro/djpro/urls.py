@@ -27,4 +27,6 @@ urlpatterns = [
     path('profile/',views.profile, name='profile'),
     path('form/', views.form, name = 'form'),
     path('upload_file/', views.upload_file, name ='upload_file'),
+    path('yaml/', views.convert_text_to_yaml, name = 'convert_text_to_yaml'),
+    path('download_yaml/', views.download_yaml, name='download_yaml'),
 ]
