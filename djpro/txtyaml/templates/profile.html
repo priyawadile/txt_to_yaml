@@ -7,6 +7,7 @@
    {% if user.is_authenticated %}
       Hi {{ user.username }}!
       <a href="/upload_file" class="btn btn-success">Convert Text File To YAML File</a>
+      <a href="/signout" class="btn btn-danger">Logout</a>
     {% else %}
       <a href="/signin" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span>Login</a> 
       <a href="/signup" class="btn btn-success">Signup</a>
