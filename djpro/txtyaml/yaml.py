@@ -25,7 +25,7 @@ def convert_text_to_yaml(input_file_path, output_file_path):
         questions.append(current_question)
 
     with open(output_file_path, 'w') as output_file:
-        yaml.dump(questions, output_file, default_flow_style=False)
+        yaml.dump(questions, output_file, default_flow_style=False, sort_keys=False)
 
 
 input_file_path = r'C:\Users\admin\Desktop\sample.txt'  
